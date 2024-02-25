@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  django:
+    build: ./django
+    working_dir: /app/noethysweb/noethysweb
+    command: gunicorn noethysweb.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - ./db:/app/noethysweb/noethysweb/db
+      - ./mediafiles:/app/noethysweb/noethysweb/mediafiles
+      - ./django/settings_production.py:/app/noethysweb/noethysweb/noethysweb/settings_production.py
+      - staticfiles:/app/noethysweb/noethysweb/core/static
+    env_file:
+      - ./.env
+  nginx:
+    image: nginx:1.25.4
+    volumes:
+      - ./log/nginx:/var/log/nginx
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - staticfiles:/app/static
+    ports:
+      - 80:80
+
+volumes:
+  staticfiles:
