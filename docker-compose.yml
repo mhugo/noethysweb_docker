@@ -9,9 +9,8 @@ services:
       - ./db:/app/noethysweb/noethysweb/db
       - ./mediafiles:/app/noethysweb/noethysweb/mediafiles
       - ./django/settings_production.py:/app/noethysweb/noethysweb/noethysweb/settings_production.py
-      - staticfiles:/app/noethysweb/noethysweb/core/static
-    env_file:
-      - ./.env
+      - ./reset.sh:/app/reset.sh
+      - staticfiles:/app/noethysweb/noethysweb/static
   nginx:
     image: nginx:1.25.4
     volumes:

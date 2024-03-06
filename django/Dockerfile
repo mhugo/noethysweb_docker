@@ -12,10 +12,6 @@ RUN ln -s Noethysweb-1.2.2.9 noethysweb
 # do not install mysqlclient
 RUN pip install --no-cache-dir $(grep -v "^mysqlclient" noethysweb/requirements.txt) gunicorn
 
-#RUN addgroup --system app && adduser --system --group app
-
-#USER app
-
 WORKDIR /app/noethysweb/noethysweb
 
 
