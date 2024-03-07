@@ -11,6 +11,8 @@ services:
       - ./django/settings_production.py:/app/noethysweb/noethysweb/noethysweb/settings_production.py
       - ./reset.sh:/app/reset.sh
       - ./static:/app/noethysweb/noethysweb/static
+    ports:
+      - "127.0.0.1:8000:8000"
   nginx:
     image: nginx:1.25.4
     volumes:
