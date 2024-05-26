@@ -5,10 +5,10 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-ADD https://github.com/Noethys/Noethysweb/archive/refs/tags/1.2.3.0.tar.gz noethysweb.tar.gz
+ADD https://github.com/Noethys/Noethysweb/archive/refs/tags/1.2.3.6.tar.gz noethysweb.tar.gz
 
 RUN tar xzvf noethysweb.tar.gz
-RUN ln -s Noethysweb-1.2.3.0 noethysweb
+RUN ln -s Noethysweb-1.2.3.6 noethysweb
 # do not install mysqlclient
 RUN pip install --no-cache-dir $(grep -v "^mysqlclient" noethysweb/requirements.txt) gunicorn
 
