@@ -10,7 +10,9 @@ services:
       - ./mediafiles:/app/noethysweb/noethysweb/mediafiles
       - ./django/settings_production.py:/app/noethysweb/noethysweb/noethysweb/settings_production.py
       - ./reset.sh:/app/reset.sh
+      - ./import_jpp.py:/app/noethysweb/noethysweb/import_jpp.py
       - ./static:/app/noethysweb/noethysweb/static
+      - ./kantin/:/kantin/
     ports:
       - "127.0.0.1:8000:8000"
   nginx:
