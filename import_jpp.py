@@ -91,8 +91,8 @@ def read_villes():
     return villes
 
 
-date_debut_annee = datetime.date.fromisoformat("2023-09-01")
-date_fin_annee = datetime.date.fromisoformat("2024-06-30")
+date_debut_annee = datetime.date.fromisoformat("2024-09-01")
+date_fin_annee = datetime.date.fromisoformat("2025-06-30")
 
 
 def import_jpp():
