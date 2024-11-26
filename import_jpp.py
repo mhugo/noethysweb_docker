@@ -10,8 +10,9 @@ mdb-tables diwan_L_tab_ecole.accdb
 
 e.g. Exporter toutes les tables
 
-for table in `mdb-tables diwan_L_tab_ecole.accdb`; do
-  mdb-export diwan_L_tab_ecole.accdb $table > $table.csv
+IFS=$'\n'; for table in `mdb-tables -1 diwan_L_tab_ecole.accdb`; do
+  f=$(echo $table | tr ' /' '__')
+  mdb-export diwan_L_tab_ecole.accdb $table > $f.csv
 done
 
 2. Corriger la table des noms de parents (T_PARENTS_ID.csv) pour s'assurer
