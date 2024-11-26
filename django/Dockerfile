@@ -11,6 +11,8 @@ RUN tar xzvf noethysweb.tar.gz
 RUN ln -s Noethysweb-1.2.7.3 noethysweb
 # do not install mysqlclient
 RUN pip install --no-cache-dir $(grep -v "^mysqlclient" noethysweb/requirements.txt) gunicorn
+# fix for Django 4
+RUN sed -i s/ugettext_lazy/gettext_lazy/ /usr/local/lib/python3.9/site-packages/upload_form/forms.py
 
 WORKDIR /app/noethysweb/noethysweb
 

@@ -21,6 +21,14 @@ que le nom respecte le format "NOM Prénom" (certains noms prénoms sont invers�
 
 3. Placer les fichiers csv dans un répertoire ./kantin
 
+3.b. si la base n'existe pas encore:
+```
+docker-compose exec django python manage.py makemigrations
+docker-compose exec django python manage.py migrate
+# import default database
+docker-compose exec django python manage.py import_defaut
+```
+
 4. Lancer le script d'import depuis une base Noethysweb vide
 
 docker-compose exec django python import_jpp.py
