@@ -13,6 +13,7 @@ services:
       - ./import_jpp.py:/app/noethysweb/noethysweb/import_jpp.py
       - ./static:/app/noethysweb/noethysweb/static
       - ./kantin/:/kantin/
+      - ./gunicorn.conf.py:/app/noethysweb/noethysweb/gunicorn.conf.py
     ports:
       - "127.0.0.1:8000:8000"
   nginx:
